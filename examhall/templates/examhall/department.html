@@ -1,0 +1,46 @@
+{% extends 'examhall/base.html' %}
+
+{% block content %}
+    <div class="col-lg-3 col-md-9 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form action="{% url 'manage_department' %}" method="post">
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input type="submit" value="ADD DEPARTMENT" class="btn btn-dark btn-outline-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-7 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center">
+                        <tr>
+                            <th>Course</th>
+                            <th>Department</th>
+                            <th>Code</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        {% for d in department %}
+                            <tr>
+                                <td>{{ d.course_id.course_name }}</td>
+                                <td>{{ d.dep_name }}</td>
+                                <td>{{ d.dep_code }}</td>
+                                <td>{{ d.dep_status }}</td>
+                                <td>
+                                    <a href="" class="btn btn-primary">view</a>
+                                    <a href="" class="btn btn-danger">X</a>
+                                    <a href="" class="btn btn-success">edit</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

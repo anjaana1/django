@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam Hall seating Arrangement System | SignUp</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body style="background-color: whitesmoke">
+<nav class="navbar navbar-expand-lg navbar-dark mt-0 text-white" style="background-color: purple">Exam Hall Seating Arrabgement System
+</nav>
+    <div class="jumbotron  mb-0" style="background-color:wheat">
+        <div class="container mb-0">
+                   <h1 class="text-center display-4 mt-1" style="color: black"><b>Exam
+                       <span style="color: black">Hall</span>
+                       <span style="color: purple">Seating</span><br>
+                       <span style="color: purple">Arrangement</span><br>
+                       <span style="color: black">System</span>
+                   </b></h1>
+
+    </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 ml-auto p-5">
+                <form action="{% url 'admin_login' %}" method="post">
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input type="submit" value="Log In" class="btn btn-primary">
+                </form>
+            </div>
+    </div>
+    </div>
+</body>
+</html>
